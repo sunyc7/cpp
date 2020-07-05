@@ -274,7 +274,7 @@ void matALU(RMATRIX& A,RMATRIX& L,RMATRIX& U) // Private
     {
       float r=U.mat[k][i]/U.mat[j][i];
       U.replacement(-r,j,k);
-      L.replacement( r,j,k);
+      L.mat[k][i]=r;
     }
   }
 }
