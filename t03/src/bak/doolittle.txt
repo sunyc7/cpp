@@ -1,0 +1,25 @@
+  // Doolittle's method
+  for(int i=0;i<N;i++)
+  {
+    // Upper Triangular
+    for(int k=i;k<N;k++) 
+    {
+      float sum=0.0;
+      for(int j=0;j<i;j++) sum+=L.mat[i][j]*U.mat[j][k];
+      U.mat[i][k]=A.mat[i][k]-sum;
+    }
+    // Lower Triangluar
+    for(int k=i;k<N;k++) 
+    {
+      if(i==k)
+      {
+        L.mat[i][i]=1.0;
+      }
+      else
+      {
+        float sum=0.0;
+        for(int j=0;j<i;j++) sum+=L.mat[k][j]*U.mat[j][i];
+        L.mat[k][i]=(A.mat[k][i]-sum)/U.mat[i][i];
+      }
+    }
+  }
